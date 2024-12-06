@@ -6,7 +6,7 @@
         content="Transformer-based Interpretable Polyp Segmentation">
   <meta name="keywords" content="Transformer, Interpretable, Segmentation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transformer-based Interpretable Polyp Segmentation</title>
+  <title>TPS: Transformer-based Polyp Segmentation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,22 +88,54 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Transformer-based Interpretable Polyp Segmentation</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://madanbaduwal.github.io">Madan Baduwal</a><sup>1</sup>,</span>
-            <!-- <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=dztOQhcAAAAJ&hl=en">Priyanka Kumar</a><sup>2</sup>,</span>
-            <span class="author-block"> -->
-              <a href="https://www.linkedin.com/in/kishor-karki-3861a3199/">Kishor Karki</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.linkedin.com/in/shresthausha">Usha Shrestha</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.linkedin.com/in/halimat-popoola-6bb07b251">Halimat Popoola</a><sup>2</sup>,
-            </span>
-          </div>
+          <h1 class="title is-1 publication-title">TPS: Transformer-based Polyp Segmentation</h1>
+          <section class="section">
+            <div class="container">
+              <h1 class="title has-text-centered">Team</h1>
+              <div class="columns is-multiline is-centered">
+                <div class="column is-one-quarter has-text-centered">
+                  <figure class="image is-128x128 is-inline-block">
+                    <img class="is-rounded" src="./static/images/madan.jpg" alt="Team Member 1">
+                  </figure>
+                  <p class="has-text-weight-bold">
+                    <a href="https://madanbaduwal.github.io" target="_blank" rel="noopener noreferrer">
+                      Madan Baduwal<sup>1</sup>
+                    </a>
+                  </p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                  <figure class="image is-128x128 is-inline-block">
+                    <img class="is-rounded" src="./static/images/kishor.jpeg" alt="Team Member 2">
+                  </figure>
+                  <p class="has-text-weight-bold">
+                    <a href="https://www.linkedin.com/in/kishor-karki-3861a3199/" target="_blank" rel="noopener noreferrer">
+                      Kishor Karki<sup>2</sup>
+                    </a>
+                  </p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                  <figure class="image is-128x128 is-inline-block">
+                    <img class="is-rounded" src="./static/images/usha.jpeg" alt="Team Member 3">
+                  </figure>
+                  <p class="has-text-weight-bold">
+                    <a href="https://www.linkedin.com/in/shresthausha/" target="_blank" rel="noopener noreferrer">
+                      Usha Shrestha<sup>3</sup>
+                    </a>
+                  </p>
+                </div>
+                <div class="column is-one-quarter has-text-centered">
+                  <figure class="image is-128x128 is-inline-block">
+                    <img class="is-rounded" src="./static/images/halimat.jpeg" alt="Team Member 4">
+                  </figure>
+                  <p class="has-text-weight-bold">
+                    <a href="https://www.linkedin.com/in/halimat-popoola-6bb07b251/" target="_blank" rel="noopener noreferrer">
+                      Halimat Popoola<sup>4</sup>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Texas Permian Basin</span>
@@ -114,7 +146,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://www.overleaf.com/read/hmsfryvvsxxz#91b546"
+                <a href="./static/pdf/Polyp_Segmentation_Paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -150,16 +182,20 @@
   </div>
 </section>
 
+
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <h1 class="title has-text-centered">Demo</h1>
       <img src="./static/images/demo-gif.gif" alt="Demo GIF" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">ViT</span> Vision Transformer Predicting Segmentation area.
+        <span class="dnerf">ViT</span> Vision Transformer Predicting Segmentation Area.
       </h2>
     </div>
   </div>
 </section>
+
 
 
 
@@ -229,15 +265,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Colorectal cancer(CRC) is the third most commonly diagnosed cancer in the world. 
-            Colonoscopy is the primary method to find colonic polyps. 
-            However, due to the different sizes and the unclear boundaries of polyps, it is challenging to segment polyps accurately. 
-            Early diagnosis and treatment of polyps during colonoscopy are essential for reducing the incidence and mortality of CRC. 
-            However, the variability in polyp characteristics and the presence of artifacts in colonoscopy images and videos pose significant challenges for accurate and efficient polyp detection and segmentation. 
-            We leverage transfer learning and fine-tuning strategies to optimize the resource utilization of transformer-based models. 
-            Transparency is a core principle of our methodology, aimed at promoting fairness and trust in the application of polyp-segmentation models. 
-            To achieve transparency, we utilize Captum, a tool that helps uncover and mitigate potential biases while enabling the interpretation of AI-driven decisions. 
-            Our findings demonstrate that transfer learning holds significant potential for improving the performance of transformer-based models in polyp segmentation.
+            Colorectal cancer (CRC) ranks as the third most commonly diagnosed cancer worldwide. 
+            Colonoscopy remains the primary method for detecting colonic polyps, but the varying sizes and indistinct boundaries of polyps make accurate segmentation a significant challenge. 
+            Early diagnosis and treatment of polyps during colonoscopy are critical in reducing the incidence and mortality rates of CRC. 
+            However, accurate and efficient polyp detection and segmentation are hindered by the variability in polyp characteristics and the presence of artifacts in colonoscopy images and videos. 
+            To address these challenges, we employ transfer learning and fine-tuning techniques to enhance the resource efficiency of transformer-based models. 
+            By leveraging pre-trained vision transformers, we achieved notable accuracy with limited labeled data. 
+            Our results underscore the potential of transfer learning in advancing the performance of transformer-based models for polyp segmentation.
           </p>
         </div>
       </div>
@@ -257,12 +291,165 @@
   </div> -->
 </section>
 
+<section class="section" id="architecture">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3" style="text-align: center;">Architecture</h2>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="./static/images/architecture.jpg" alt="Architecture Diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+  </div>
+</section>
 
 
+
+<h2 class="title is-3" style="text-align: center;">Results</h2>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slides img {
+      width: 100%;
+      display: block;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 18px;
+      height: auto;
+      width: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      position: absolute;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px; /* Position left arrow */
+    }
+
+    .next {
+      right: 10px; /* Position right arrow */
+    }
+
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: auto;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #717171;
+    }
+  </style>
+</head>
+<body>
+
+<section class="section" id="slider-section">
+  <div class="slider">
+    <div class="slides">
+      <img src="./static/images/results1.png" alt="Image 1">
+      <img src="./static/images/results2.png" alt="Image 2">
+    </div>
+    <div class="navigation">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelector('.slides');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlides(index) {
+    if (index >= dots.length) slideIndex = 0;
+    if (index < 0) slideIndex = dots.length - 1;
+
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === slideIndex);
+    });
+  }
+
+  function nextSlide() {
+    slideIndex++;
+    showSlides(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex--;
+    showSlides(slideIndex);
+  }
+
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.querySelector('.prev').addEventListener('click', prevSlide);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      slideIndex = i;
+      showSlides(slideIndex);
+    });
+  });
+
+  setInterval(() => {
+    nextSlide();
+  }, 3000); // Automatically change slides every 3 seconds
+
+  showSlides(slideIndex); // Initialize
+</script>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title is-3" style="text-align: center;">BibTeX</h2>
     <pre><code>@article{baduwal2024,
   author    = {Madan Baduwal, Kishor Karki, Usha Shrestha, Halimat Popoola,},
   title     = {Transformer-based Interpretable Polyp Segmentation},
@@ -273,35 +460,18 @@
 </section>
 
 
+
+
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://www.overleaf.com/read/hmsfryvvsxxz#91b546">
+         href="./static/pdf/Polyp_Segmentation_Paper.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
       <a class="icon-link" href="https://github.com/madanbaduwal" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
   </div>
 </footer>
 
