@@ -6,7 +6,7 @@
         content="Transformer-based Polyp Segmentation">
   <meta name="keywords" content="Transformer, Polyp Segmentation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TPS: Transformer-based Polyp Segmentation</title>
+  <title>Hybrid(Transformer+CNN)-based Polyp Segmentation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,7 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">TPS: Transformer-based Polyp Segmentation</h1>
+          <h1 class="title is-1 publication-title">Hybrid(Transformer+CNN)-based Polyp Segmentation</h1>
           <section class="section">
             <div class="container">
               <h1 class="title has-text-centered">Team</h1>
@@ -190,7 +190,7 @@
       <h1 class="title has-text-centered">Demo</h1>
       <img src="./static/images/demo-gif.gif" alt="Demo GIF" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">ViT</span> Vision Transformer Predicting Segmentation Area.
+        <span class="dnerf">Hybrid(Transformer+CNN)</span> -based Polyp Segmentation
       </h2>
     </div>
   </div>
@@ -265,13 +265,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Colorectal cancer (CRC) ranks as the third most commonly diagnosed cancer worldwide. 
-            Colonoscopy remains the primary method for detecting colonic polyps, but the varying sizes and indistinct boundaries of polyps make accurate segmentation a significant challenge. 
-            Early diagnosis and treatment of polyps during colonoscopy are critical in reducing the incidence and mortality rates of CRC. 
-            However, accurate and efficient polyp detection and segmentation are hindered by the variability in polyp characteristics and the presence of artifacts in colonoscopy images and videos. 
-            To address these challenges, we employ transfer learning and fine-tuning techniques to enhance the resource efficiency of transformer-based models. 
-            By leveraging pre-trained vision transformers, we achieved notable accuracy with limited labeled data. 
-            Our results underscore the potential of transfer learning in advancing the performance of transformer-based models for polyp segmentation.
+            Colonoscopy is still the main method of detection and segmentation of colonic polyps, and recent advancements in deep learning networks such as U-Net, ResUNet, Swin-UNet, and PraNet have made outstanding performance in polyp segmentation. 
+            Yet, the problem is extremely challenging due to high variation in size, shape, endoscopy types, lighting, imaging protocols, and ill-defined boundaries(fluid, folds) of the polyps, rendering accurate segmentation a challenging and problematic task. 
+            To address these critical challenges in polyp segmentation, we introduce a hybrid (Transformer + CNN) model that is crafted to enhance robustness against evolving polyp characteristics. 
+            Our hybrid architecture demonstrates superior performance over existing solutions, particularly in addressing two critical challenges: 
+            (1) accurate segmentation of polyps with ill-defined margins through boundary-aware attention mechanisms, 
+            and (2) robust feature extraction in the presence of common endoscopic artifacts including specular highlights, motion blur, and fluid occlusions. 
+            Quantitative evaluations reveal significant improvements in segmentation accuracy (Recall improved by 1.76%, i.e., 0.9555, accuracy improved by 0.07%, i.e., 0.9849) and artifact resilience compared to state-of-the-art polyp segmentation methods.
           </p>
         </div>
       </div>
@@ -291,11 +291,222 @@
   </div> -->
 </section>
 
+
+<div class="container is-max-desktop">
+  <div class="table-container">
+    <table class="polyp-datasets-table">
+      <caption>Comparison of publicly available polyp detection/segmentation datasets.</caption>
+      <thead>
+        <tr>
+          <th>Dataset Name (Year, Country)</th>
+          <th>Ground Truth</th>
+          <th>Images</th>
+          <th>Resolution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CVC-ColonDB (2013, Spain)<sup>1</sup></td>
+          <td>Binary Mask</td>
+          <td>380</td>
+          <td>500×574</td>
+        </tr>
+        <tr>
+          <td>ETIS-LaribPolypDB (2014, France)<sup>2</sup></td>
+          <td>Binary Mask</td>
+          <td>196</td>
+          <td>1225×966</td>
+        </tr>
+        <tr>
+          <td>CVC-ClinicDB (2015, Spain)<sup>3</sup></td>
+          <td>Binary Mask</td>
+          <td>612</td>
+          <td>576×768</td>
+        </tr>
+        <tr>
+          <td>ASU-Mayo (2016, USA)<sup>4</sup></td>
+          <td>Binary Mask + BBox</td>
+          <td>18,781</td>
+          <td>512×512</td>
+        </tr>
+        <tr>
+          <td>GI Lesions (2016, France)<sup>5</sup></td>
+          <td>Annotated File + BBox</td>
+          <td>30 videos</td>
+          <td>768×576</td>
+        </tr>
+        <tr>
+          <td>EndoScene (2016)<sup>6</sup></td>
+          <td>Binary Mask</td>
+          <td>912</td>
+          <td>224×224</td>
+        </tr>
+        <tr>
+          <td>CVC-ClinicVideoDB (2017)<sup>7</sup></td>
+          <td>Binary Mask</td>
+          <td>11,954 frames</td>
+          <td>384×288</td>
+        </tr>
+        <tr>
+          <td>Kvasir-SEG (2019, Norway)<sup>8</sup></td>
+          <td>Binary Mask + BBox</td>
+          <td>1,000</td>
+          <td>320×320</td>
+        </tr>
+        <tr>
+          <td>KvasirCapsule-SEG (2019, Norway)<sup>9</sup></td>
+          <td>BBox</td>
+          <td>47,238</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>NBIPolyp-Ucdb (2019, Portugal)<sup>10</sup></td>
+          <td>Binary Mask</td>
+          <td>86</td>
+          <td>576×720</td>
+        </tr>
+        <tr>
+          <td>WLPolyp-UCdb (2019, Portugal)<sup>10</sup></td>
+          <td>Annotated File</td>
+          <td>3,040</td>
+          <td>726×576</td>
+        </tr>
+        <tr>
+          <td>KUMC (2020, Korea)<sup>11</sup></td>
+          <td>BBox</td>
+          <td>4,856</td>
+          <td>224×224</td>
+        </tr>
+        <tr>
+          <td>SUN (2020, Japan)<sup>12</sup></td>
+          <td>BBox</td>
+          <td>49,136</td>
+          <td>416×416</td>
+        </tr>
+        <tr>
+          <td>PICCOLO (2020, Spain)<sup>13</sup></td>
+          <td>Binary Mask</td>
+          <td>3,433</td>
+          <td>854×480</td>
+        </tr>
+        <tr>
+          <td>CP-CHILD (2020, China)<sup>14</sup></td>
+          <td>Annotated File</td>
+          <td>9,500</td>
+          <td>256×256</td>
+        </tr>
+        <tr>
+          <td>EDD2020 (2020, International)<sup>15</sup></td>
+          <td>BBox + Binary Mask</td>
+          <td>386 videos</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>HyperKvasir (2020, Norway)<sup>16</sup></td>
+          <td>Binary Mask</td>
+          <td>10,662</td>
+          <td>224×224</td>
+        </tr>
+        <tr>
+          <td>Kvasir-Capsule (2021, Norway)<sup>17</sup></td>
+          <td>BBox</td>
+          <td>47,238</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>LD Polyp Video (2021, China)<sup>18</sup></td>
+          <td>BBox</td>
+          <td>40,187 frames</td>
+          <td>560×480</td>
+        </tr>
+        <tr>
+          <td>SUN-SEG (2022, Japan)<sup>19</sup></td>
+          <td>Multiple types</td>
+          <td>158,690</td>
+          <td>416×416</td>
+        </tr>
+        <tr>
+          <td>PolypGen (2022, Multi-center)<sup>20</sup></td>
+          <td>Binary Mask + BBox</td>
+          <td>6,282</td>
+          <td>Various</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 0.85em;
+  }
+  
+  .polyp-datasets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    table-layout: auto;
+  }
+  
+  .polyp-datasets-table caption {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .polyp-datasets-table th, 
+  .polyp-datasets-table td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    text-align: left;
+    word-break: break-word;
+  }
+  
+  .polyp-datasets-table th:nth-child(1),
+  .polyp-datasets-table td:nth-child(1) {
+    width: 35%;
+  }
+  
+  .polyp-datasets-table th:nth-child(2),
+  .polyp-datasets-table td:nth-child(2) {
+    width: 25%; 
+  }
+  
+  .polyp-datasets-table th:nth-child(3),
+  .polyp-datasets-table td:nth-child(3) {
+    width: 15%; 
+  }
+  
+  .polyp-datasets-table th:nth-child(4),
+  .polyp-datasets-table td:nth-child(4) {
+    width: 25%;
+  }
+  
+  .polyp-datasets-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .polyp-datasets-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-notes {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+  }
+</style>
+
 <section class="section" id="architecture">
   <div class="container is-max-desktop content">
     <h2 class="title is-3" style="text-align: center;">Architecture</h2>
     <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="./static/images/architecture.jpg" alt="Architecture Diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+      <img src="./static/images/Architecture-final.png" alt="Architecture Diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
     </div>
   </div>
 </section>
@@ -303,149 +514,30 @@
 
 
 <h2 class="title is-3" style="text-align: center;">Results</h2>
-<style>
-    body {
-      font-family: Arial, sans-serif;
-    }
 
-    .slider {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-    }
-
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%;
-    }
-
-    .slides img {
-      width: 100%;
-      display: block;
-    }
-
-    .navigation {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-
-    .prev, .next {
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      font-size: 18px;
-      height: auto;
-      width: 30px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      position: absolute;
-      z-index: 10;
-    }
-
-    .prev {
-      left: 10px; /* Position left arrow */
-    }
-
-    .next {
-      right: 10px; /* Position right arrow */
-    }
-
-    .dots {
-      text-align: center;
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-    }
-
-    .dot {
-      cursor: pointer;
-      height: auto;
-      width: 10px;
-      margin: 0 5px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s;
-    }
-
-    .dot.active {
-      background-color: #717171;
-    }
-  </style>
-</head>
-<body>
-
-<section class="section" id="slider-section">
-  <div class="slider">
-    <div class="slides">
-      <img src="./static/images/results1.png" alt="Image 1">
-      <img src="./static/images/results2.png" alt="Image 2">
-    </div>
-    <div class="navigation">
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-    <div class="dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+<section class="section" id="results-section">
+  <div class="results-container">
+    <img src="./static/images/results1.png" alt="Result 1" class="result-img">
+    <img src="./static/images/results2.png" alt="Result 2" class="result-img">
   </div>
 </section>
 
-<script>
-  let slideIndex = 0;
-  const slides = document.querySelector('.slides');
-  const dots = document.querySelectorAll('.dot');
-
-  function showSlides(index) {
-    if (index >= dots.length) slideIndex = 0;
-    if (index < 0) slideIndex = dots.length - 1;
-
-    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === slideIndex);
-    });
+<style>
+  .results-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Center images if they don't take full width */
   }
 
-  function nextSlide() {
-    slideIndex++;
-    showSlides(slideIndex);
+  .result-img {
+    width: 100%; /* Image fills container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    margin-bottom: 20px; /* Add spacing between images */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 8px; /* Optional rounded corners */
   }
-
-  function prevSlide() {
-    slideIndex--;
-    showSlides(slideIndex);
-  }
-
-  document.querySelector('.next').addEventListener('click', nextSlide);
-  document.querySelector('.prev').addEventListener('click', prevSlide);
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      slideIndex = i;
-      showSlides(slideIndex);
-    });
-  });
-
-  setInterval(() => {
-    nextSlide();
-  }, 3000); // Automatically change slides every 3 seconds
-
-  showSlides(slideIndex); // Initialize
-</script>
+</style>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
